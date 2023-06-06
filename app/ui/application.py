@@ -19,6 +19,7 @@ class Application:
         # page settings.
         self.page = page
         self.page.on_route_change = self.__route_change
+        self.page.theme = ft.Theme()
 
         # views.
         self.login_view = LoginView()
@@ -34,9 +35,10 @@ class Application:
         self.handler = Handler(self)
 
         # initial state.
-        self.active_light_theme()
-        self.blue_colors_scheme()
-        self.go_login_view()
+        self.__set_page_transition(ft.PageTransitionTheme.NONE)
+        self.active_dark_theme()
+        self.gray_colors_scheme()
+        self.go_accounts_view()
 
     def __route_change(self, *_args) -> None:
         template_route = ft.TemplateRoute(self.page.route)
@@ -65,6 +67,13 @@ class Application:
 
         elif template_route.match(self.about_view.route):
             self.page.views.append(self.about_view)
+
+    def __set_page_transition(self, transition: ft.PageTransitionTheme) -> None:
+        self.page.theme.page_transitions.linux = transition
+        self.page.theme.page_transitions.macos = transition
+        self.page.theme.page_transitions.windows = transition
+        self.page.theme.page_transitions.ios = transition
+        self.page.theme.page_transitions.android = transition
 
     def __get_general_views(self) -> List[DefaultGeneralView]:
         return [
