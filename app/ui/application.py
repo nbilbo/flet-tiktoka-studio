@@ -38,7 +38,7 @@ class Application:
         self.__set_page_transition(ft.PageTransitionTheme.NONE)
         self.active_dark_theme()
         self.gray_colors_scheme()
-        self.go_accounts_view()
+        self.go_login_view()
 
     def __route_change(self, *_args) -> None:
         template_route = ft.TemplateRoute(self.page.route)
@@ -87,22 +87,22 @@ class Application:
 
     def __set_appbar_toggle_theme_selected(self, selected: bool) -> None:
         for view in self.__get_general_views():
-            view.get_appbar().toggle_theme_button.selected = selected
+            view.appbar.toggle_theme_button.selected = selected
 
     def __set_appbar_background_color(self, color: str) -> None:
         for view in self.__get_general_views():
-            view.get_appbar().bgcolor = color
+            view.appbar.bgcolor = color
 
     def __set_appbar_foreground_color(self, color: str) -> None:
         for view in self.__get_general_views():
-            view.get_appbar().title.color = color
-            view.get_appbar().leading.color = color
+            view.appbar.title.color = color
+            view.appbar.leading.color = color
 
-            view.get_appbar().toggle_theme_button.icon_color = color
-            view.get_appbar().toggle_theme_button.selected_icon_color = color
+            view.appbar.toggle_theme_button.icon_color = color
+            view.appbar.toggle_theme_button.selected_icon_color = color
 
-            view.get_appbar().logout_button.icon_color = color
-            view.get_appbar().logout_button.selected_icon_color = color
+            view.appbar.logout_button.icon_color = color
+            view.appbar.logout_button.selected_icon_color = color
 
     def __set_navbar_background_color(self, color: str) -> None:
         for view in self.__get_general_views():

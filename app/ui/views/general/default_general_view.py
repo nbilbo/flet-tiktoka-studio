@@ -22,7 +22,18 @@ class DefaultGeneralView(ft.View):
         self.toggle_navbar_button.selected_icon = ft.icons.ARROW_RIGHT
         self.toggle_navbar_button.on_click = self.toggle_click
 
+        self.title_text = ft.Text()
+        self.title_text.value = 'Default General View'
+        self.title_text.text_align = ft.TextAlign.CENTER
+        self.title_text.style = ft.TextThemeStyle.TITLE_LARGE
+        self.title_text.expand = True
+
+        self.inner_content = ft.Column()
+        self.inner_content.controls.append(ft.Row([self.title_text]))
+
         self.inner_container = ft.Container()
+        self.inner_container.content = self.inner_content
+        self.inner_container.padding = ft.padding.all(2)
         self.inner_container.expand = True
 
         content = ft.Row()
