@@ -201,3 +201,9 @@ class Application:
 
         elif self.page.theme_mode == ft.ThemeMode.LIGHT:
             self.active_dark_theme()
+
+    def toggle_navbar(self) -> None:
+        for view in self.__get_general_views():
+            view.navbar.visible = not view.navbar.visible
+            view.toggle_navbar_button.selected = not view.toggle_navbar_button.selected
+        self.page.update()

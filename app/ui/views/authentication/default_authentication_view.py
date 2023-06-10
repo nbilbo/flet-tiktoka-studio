@@ -9,6 +9,7 @@ class DefaultAuthenticationView(ft.View):
 
         self.title = ft.Text()
         self.title.text_align = ft.TextAlign.CENTER
+        self.title.style = ft.TextThemeStyle.DISPLAY_LARGE
         self.title.expand = True
 
         self.username_field = ft.TextField()
@@ -25,10 +26,4 @@ class DefaultAuthenticationView(ft.View):
         self.content.width = 500
         self.content.alignment = ft.MainAxisAlignment.CENTER
         self.content.controls.append(ft.Row([self.title]))
-        self.content.controls.append(ft.Row([self.username_field]))
-        self.content.controls.append(ft.Row([self.password_field]))
-
-        container = ft.Container()
-        container.content = self.content
-        container.padding = ft.padding.all(5)
-        self.controls.append(container)
+        self.controls.append(self.content)

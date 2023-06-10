@@ -2,34 +2,46 @@ from typing import List
 
 import flet as ft
 
-from app.ui.navbar.buttons import AboutNavBarButton
-from app.ui.navbar.buttons import AccountsNavBarButton
-from app.ui.navbar.buttons import DefaultNavBarButton
-from app.ui.navbar.buttons import DiscordNavBarButton
-from app.ui.navbar.buttons import HomeNavBarButton
-from app.ui.navbar.buttons import SettingsNavBarButton
-from app.ui.navbar.buttons import TelegramNavBarButton
+from app.ui.components import NavBarButton
 
 
 class NavNar(ft.UserControl):
     def __init__(self) -> None:
         super().__init__()
-        self.home_button = HomeNavBarButton()
+        self.home_button = NavBarButton()
+        self.home_button.text_content.value = 'Home'
+        self.home_button.icon_content.name = ft.icons.HOME_OUTLINED
+        self.home_button.selected_icon_name = ft.icons.HOME
         self.home_button.expand = True
 
-        self.accounts_button = AccountsNavBarButton()
+        self.accounts_button = NavBarButton()
+        self.accounts_button.text_content.value = 'Home'
+        self.accounts_button.icon_content.name = ft.icons.GROUP_OUTLINED
+        self.accounts_button.selected_icon_name = ft.icons.GROUP
         self.accounts_button.expand = True
 
-        self.telegram_button = TelegramNavBarButton()
+        self.telegram_button = NavBarButton()
+        self.telegram_button.text_content.value = 'Telegram'
+        self.telegram_button.icon_content.name = ft.icons.TELEGRAM_OUTLINED
+        self.telegram_button.selected_icon_name = ft.icons.TELEGRAM
         self.telegram_button.expand = True
 
-        self.discord_button = DiscordNavBarButton()
+        self.discord_button = NavBarButton()
+        self.discord_button.text_content.value = 'Discord'
+        self.discord_button.icon_content.name = ft.icons.DISCORD_OUTLINED
+        self.discord_button.selected_icon_name = ft.icons.DISCORD
         self.discord_button.expand = True
 
-        self.settings_button = SettingsNavBarButton()
+        self.settings_button = NavBarButton()
+        self.settings_button.text_content.value = 'Settings'
+        self.settings_button.icon_content.name = ft.icons.SETTINGS_OUTLINED
+        self.settings_button.selected_icon_name = ft.icons.SETTINGS
         self.settings_button.expand = True
 
-        self.about_button = AboutNavBarButton()
+        self.about_button = NavBarButton()
+        self.about_button.text_content.value = 'About'
+        self.about_button.icon_content.name = ft.icons.INFO_OUTLINE
+        self.about_button.selected_icon_name = ft.icons.INFO
         self.about_button.expand = True
 
         content = ft.Column()
@@ -49,13 +61,13 @@ class NavNar(ft.UserControl):
         return self.container
 
     @staticmethod
-    def focus_button(button: DefaultNavBarButton) -> None:
+    def focus_button(button: NavBarButton) -> None:
         button.arrow_icon_content.visible = True
         button.icon_content.name = button.selected_icon_name
         button.text_content.weight = ft.FontWeight.BOLD
         button.icon_content.size = 35
 
-    def get_navbar_buttons(self) -> List[DefaultNavBarButton]:
+    def get_navbar_buttons(self) -> List[NavBarButton]:
         return [
             self.home_button,
             self.accounts_button,

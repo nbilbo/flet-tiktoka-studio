@@ -32,14 +32,15 @@ class Handler:
         view.about_button.on_click = self.__about_navbar_click
         view.appbar.logout_button.on_click = self.__logout_appbar_click
         view.appbar.toggle_theme_button.on_click = self.__toggle_theme_appbar_click
+        view.toggle_navbar_button.on_click = self.__toggle_navbar_click
 
     def __bind_login_view(self, view: LoginView) -> None:
         view.login_button.on_click = self.__login_click
-        view.register_button.on_click = self.__dont_have_account_click
+        view.dont_have_account_button.on_click = self.__dont_have_account_click
 
     def __bind_register_view(self, view: RegisterView) -> None:
         view.register_button.on_click = self.__register_click
-        view.login_button.on_click = self.__already_have_account_click
+        view.already_have_account_button.on_click = self.__already_have_account_click
 
     def __home_navbar_click(self, _event: ft.ControlEvent) -> None:
         self.application.go_home_view()
@@ -76,3 +77,6 @@ class Handler:
 
     def __already_have_account_click(self, _event: ft.ControlEvent) -> None:
         self.application.go_login_view()
+
+    def __toggle_navbar_click(self, _event: ft.ControlEvent) -> None:
+        self.application.toggle_navbar()

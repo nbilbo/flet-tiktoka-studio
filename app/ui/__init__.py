@@ -1,1 +1,1 @@
-from app.ui.application import Application  # isort:skip
+from .application import Application  # isort:skip

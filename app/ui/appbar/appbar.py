@@ -1,8 +1,5 @@
 import flet as ft
 
-from app.ui.appbar.buttons import LogoutAppBarButton
-from app.ui.appbar.buttons import ToggleThemeAppBarButton
-
 
 class AppBar(ft.AppBar):
 
@@ -16,7 +13,15 @@ class AppBar(ft.AppBar):
 
         self.title = ft.Text()
         self.title.value = 'TikToka-Studio'
-        self.logout_button = LogoutAppBarButton()
-        self.toggle_theme_button = ToggleThemeAppBarButton()
+
+        self.logout_button = ft.IconButton()
+        self.logout_button.icon = ft.icons.LOGOUT_OUTLINED
+        self.logout_button.tooltip = 'Logout'
+
+        self.toggle_theme_button = ft.IconButton()
+        self.toggle_theme_button.icon = ft.icons.DARK_MODE
+        self.toggle_theme_button.selected_icon = ft.icons.LIGHT_MODE
+        self.toggle_theme_button.tooltip = 'Toggle Theme'
+
         self.actions.append(self.toggle_theme_button)
         self.actions.append(self.logout_button)

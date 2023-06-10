@@ -1,13 +1,8 @@
 import flet as ft
 
 from app.ui.appbar import AppBar
+from app.ui.components import NavBarButton
 from app.ui.navbar import NavNar
-from app.ui.navbar.buttons import AboutNavBarButton
-from app.ui.navbar.buttons import AccountsNavBarButton
-from app.ui.navbar.buttons import DiscordNavBarButton
-from app.ui.navbar.buttons import HomeNavBarButton
-from app.ui.navbar.buttons import SettingsNavBarButton
-from app.ui.navbar.buttons import TelegramNavBarButton
 
 
 class DefaultGeneralView(ft.View):
@@ -20,7 +15,6 @@ class DefaultGeneralView(ft.View):
         self.toggle_navbar_button = ft.IconButton()
         self.toggle_navbar_button.icon = ft.icons.ARROW_LEFT
         self.toggle_navbar_button.selected_icon = ft.icons.ARROW_RIGHT
-        self.toggle_navbar_button.on_click = self.toggle_click
 
         self.title_text = ft.Text()
         self.title_text.value = 'Default General View'
@@ -48,36 +42,28 @@ class DefaultGeneralView(ft.View):
         container.expand = True
         self.controls.append(container)
 
-    def toggle_navbar(self) -> None:
-        self.navbar.visible = not self.navbar.visible
-        self.toggle_navbar_button.selected = not self.toggle_navbar_button.selected
-        self.update()
-
-    def toggle_click(self, _event: ft.ControlEvent) -> None:
-        self.toggle_navbar()
-
     @property
-    def home_button(self) -> HomeNavBarButton:
+    def home_button(self) -> NavBarButton:
         return self.navbar.home_button
 
     @property
-    def accounts_button(self) -> AccountsNavBarButton:
+    def accounts_button(self) -> NavBarButton:
         return self.navbar.accounts_button
 
     @property
-    def telegram_button(self) -> TelegramNavBarButton:
+    def telegram_button(self) -> NavBarButton:
         return self.navbar.telegram_button
 
     @property
-    def discord_button(self) -> DiscordNavBarButton:
+    def discord_button(self) -> NavBarButton:
         return self.navbar.discord_button
 
     @property
-    def settings_button(self) -> SettingsNavBarButton:
+    def settings_button(self) -> NavBarButton:
         return self.navbar.settings_button
 
     @property
-    def about_button(self) -> AboutNavBarButton:
+    def about_button(self) -> NavBarButton:
         return self.navbar.about_button
 
     def get_appbar(self) -> AppBar:

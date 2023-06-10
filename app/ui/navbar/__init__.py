@@ -1,1 +1,1 @@
-from app.ui.navbar.navbar import NavNar  # isort:skip
+from .navbar import NavNar  # isort:skip

@@ -1,1 +1,1 @@
-from app.handler.handler import Handler  # isort:skip
+from .handler import Handler  # isort:skip
