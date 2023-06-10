@@ -15,7 +15,7 @@ class NavNar(ft.UserControl):
         self.home_button.expand = True
 
         self.accounts_button = NavBarButton()
-        self.accounts_button.text_content.value = 'Home'
+        self.accounts_button.text_content.value = 'Accounts'
         self.accounts_button.icon_content.name = ft.icons.GROUP_OUTLINED
         self.accounts_button.selected_icon_name = ft.icons.GROUP
         self.accounts_button.expand = True
